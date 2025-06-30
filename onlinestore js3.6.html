@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Store Discount</title>
+  <style>
+    body {
+      background-color:#71d8ec 		;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #summary {
+      background-color:#f7ade8;
+      border: 1px solid #f012b7;
+      padding: 20px;
+      width: 300px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    img {
+      width: 200px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Our Online Store</h1>
+
+  <div id="summary"></div>
+  <img src="https://png.pngtree.com/png-clipart/20210423/ourmid/pngtree-cute-shopping-bag-round-cartoon-instagram-icon-png-image_3231996.jpg" alt="Shopping Cart">
+
+  <script>
+    let customerName = "Hasee🛒";
+    let cartTotal = 120;
+    let discount = 0;
+    let finalPrice;
+
+    // Apply discount
+    if (cartTotal >= 100) {
+      discount = 0.2;
+    } else if (cartTotal >= 50) {
+      discount = 0.1;
+    } else {
+      discount = 0;
+    }
+
+    finalPrice = cartTotal - (cartTotal * discount);
+
+    // Display the result
+    document.getElementById("summary").innerHTML = `
+      <h2>Customer: ${customerName}</h2>
+      <p>Cart Total: $${cartTotal.toFixed(2)}</p>
+      <p>Discount: ${(discount * 100)}%</p>
+      <p><strong>Final Price: $${finalPrice.toFixed(2)}</strong></p>
+    `;
+  </script>
+
+</body>
+</html>

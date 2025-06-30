@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Explorer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://www.realitypremedia.com/blog/wp-content/uploads/2016/01/Image-processing-for-Travel-website.jpg'); /* change this to your background */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    .hide {
+      display: none;
+    }
+    .country-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="p-4">
+
+<div class="container">
+  <!-- PAGE 1: Welcome + Choices -->
+  <div id="page1">
+    <h1 class="text-center text-dark mb-4">🌍 Welcome to Travel Explorer</h1>
+    <p class="lead text-center text-dark">Choose the kind of journey you want</p>
+    <div class="text-center">
+      <form>
+        <a href="#adventure" class="btn btn-danger m-2">⛰️ Adventurous</a>
+        <a href="#beach" class="btn btn-danger m-2">🏖️ Beaches</a>
+        <a href="#peace" class="btn btn-danger m-2">🧘 Peaceful</a>
+        <a href="#culture" class="btn btn-danger m-2">🏯 Culture</a>
+        <a href="#nature" class="btn btn-danger m-2">🌲 Nature</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- PAGE 2A: Adventure -->
+  <div id="adventure" class="mt-5">
+    <h2 class="mb-3" style="color: #57277f ;">⛰️ Adventurous Countries</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://lp-cms-production.imgix.net/2021-12/nepal%20afriandi%20GettyImages-1194406259%20rfc.jpg?w=1095&fit=crop&crop=faces%2Cedges&auto=format&q=75" alt="Nepal" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Nepal</h5>
+		<p class="text-success">Best for trekking and mountain adventures in the Himalayas.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://www.carrier.co.uk/media/rtnlpurb/gettyimages-1078226640.jpg?rnd=133488453583470000" alt="New Zealand" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">New Zealand</h5>
+		<p class="text-success">Home to extreme sports, bungee jumping, and stunning landscapes.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="order-travel-boostrap-pro6.5.html" class="btn btn-success">✅ Okay Finalize</a>
+    </div>
+  </div>
+
+  <!-- PAGE 2B: Beaches -->
+  <div id="beach" class="mt-5">
+    <h2 class="mb-3" style="color: #900C3F;">🏖️ Beach Countries</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://digital.ihg.com/is/image/ihg/intercontinental-raa-atoll-10344480213-2x1" alt="Maldives" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Maldives</h5>
+		<p class="text-danger">Crystal clear waters, luxury water villas, and peaceful sunsets.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/blogCbpVXRt3w73N75SYSh-7XEEVZdEn4nhw.jpg" alt="Thailand" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Thailand</h5>
+		<p class="text-danger">Vibrant beaches, Thai culture, delicious street food, and island hopping.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="order-travel-boostrap-pro6.5.html" class="btn btn-success">✅ Okay Finalize</a>
+    </div>
+  </div>
+
+  <!-- PAGE 2C: Peaceful -->
+  <div id="peace" class="mt-5">
+    <h2 class="mb-3" style="color: orange;">🧘 Peaceful Countries</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://cdn.audleytravel.com/2478/1770/79/16027396-pura-ulun-danu-bratan-bali.jpg" alt="Bali" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Bali</h5>
+		<p class="text-warning">Tranquil temples, rice terraces, and spiritual retreats await in Bali.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://www.vanilla-islands.org/wp-content/uploads/2019/11/seychelles_iles-vanille-plage.jpg.webp" alt="Seychelles" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Seychelles</h5>
+		<p class="text-warning">Seychelles offers calm turquoise waters and secluded white sand beaches.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="order-travel-boostrap-pro6.5.html" class="btn btn-success">✅ Okay Finalize</a>
+    </div>
+  </div>
+
+  <!-- PAGE 2D: Culture -->
+  <div id="culture" class="mt-5">
+    <h2 class="mb-3" style="color:#900C3F;">🏯 Cultural Countries</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://cdn.mos.cms.futurecdn.net/3FnczamRyWU6MvRMEXWaGD.jpg" alt="India" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">India</h5>
+		<p class="text-danger">India is rich in culture, history, colorful festivals, and spiritual experiences.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR02S6soClzSKxWBGs8YaQaUpRMsn9otWPWgg&s" alt="Egypt" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Egypt</h5>
+		<p class="text-danger">Egypt invites you to explore ancient pyramids, the Nile, and timeless wonders.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="order-travel-boostrap-pro6.5.html" class="btn btn-success">✅ Okay Finalize</a>
+    </div>
+  </div>
+
+  <!-- PAGE 2E: Nature -->
+  <div id="nature" class="mt-5">
+    <h2 class="mb-3" style="color: orange;">🌲 Natural Beauty</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://cdn.britannica.com/65/162465-050-9CDA9BC9/Alps-Switzerland.jpg" alt="Switzerland" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Switzerland</h5>
+		<p class="text-warning">Switzerland offers breathtaking Alps, peaceful lakes, and scenic train rides.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://lp-cms-production.imgix.net/2024-11/Shutterstock1565887438.jpg?w=780&h=425&fit=crop&auto=format&q=75" alt="Norway" class="country-img">
+        <h5 class="mt-2"style="color:#900C3F;">Norway</h5>
+		<p class="text-warning">Norway is known for its stunning fjords, northern lights, and natural beauty.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="order-travel-boostrap-pro6.5.html" class="btn btn-success">✅ Okay Finalize</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

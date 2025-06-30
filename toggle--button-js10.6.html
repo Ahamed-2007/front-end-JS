@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toggle Event</title>
+  <style>
+    #colorBox {
+      width: 150px;
+      height: 150px;
+      background-color: lightgray;
+      margin: 20px auto;
+      border: 1px solid black;
+    }
+
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+   <h2>🎨 Click Box to Change Color</h2>
+
+  <div id="colorBox"></div>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+
+  <script>
+    const box = document.getElementById("colorBox");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeColor() {
+      box.style.backgroundColor = getRandomColor();
+    }
+
+    startBtn.onclick = function() {
+      box.addEventListener("click", changeColor);
+    }
+
+    stopBtn.onclick = function() {
+      box.removeEventListener("click", changeColor);
+    }
+  </script>
+
+</body>
+</html>

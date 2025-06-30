@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Dashboard</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+  <h2>School Dashboard</h2>
+
+  <script>
+    // Step 1: Add a new student with rest for subjects
+    function addStudent(name, age, ...subjectsAndScores) {
+      const subjects = {};
+      subjectsAndScores.forEach(([subject, score]) => {
+        subjects[subject] = score;
+      });
+
+      return {
+        name,
+        age,
+        subjects,
+      };
+    }
+
+    const studentA = addStudent("Ava", 14, ["Math", 95], ["English", 88]);
+    const studentB = addStudent("Noah", 15, ["Science", 92], ["History", 85]);
+
+    console.log("Student A:", studentA);
+    console.log("Student B:", studentB);
+
+    // Step 2: Merge student profiles using spread
+    const mergedStudent = {
+      ...studentA,
+      ...studentB, // B will overwrite A’s fields
+      name: `${studentA.name} & ${studentB.name}`, // custom merged name
+    };
+
+    console.log("Merged Student Profile:", mergedStudent);
+
+    // Step 3: Optional chaining to safely access guardian contact info
+    const studentWithGuardian = {
+      name: "Emma",
+      age: 13,
+      guardian: {
+        mother: {
+          name: "Sara",
+          contact: {
+            phone: "123-456-7890",
+            email: "sara@example.com"
+          }
+        }
+      }
+    };
+
+    // Safe access using optional chaining
+    const phone = studentWithGuardian.guardian?.mother?.contact?.phone;
+    const email = studentWithGuardian.guardian?.mother?.contact?.email;
+    const fatherName = studentWithGuardian.guardian?.father?.name;
+
+    console.log("Guardian Phone:", phone);   // ✅ Found
+    console.log("Guardian Email:", email);   // ✅ Found
+    console.log("Father Name:", fatherName); // ❌ undefined, but no error
+
+  </script>
+</body>
+</html>

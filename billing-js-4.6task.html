@@ -1,0 +1,58 @@
+<!--2. You’re building a billing system for a mobile network provider. Customers can choose 
+one of four data plans, each with different features and prices: 
+Plan Code Plan Name 
+Price Data Limit 
+A 
+Basic Plan 
+$10 1 GB/month 
+B 
+Standard Plan $20 5 GB/month 
+C 
+Premium Plan $30 15 GB/month 
+D 
+Unlimited Plan $50 Unlimited 
+• Take user input as a plan code (A, B, C, D) 
+• Use a switch statement to: 
+• Display the plan name 
+• Show price and data limit 
+• Handle invalid input with a default case -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Billing</title>
+</head>
+<body>
+  <h2>2.Billing System</h2>
+<label>Enter Plan Code (A, B, C, D):</label>
+<input type="text" id="planCode" maxlength="1">
+<button onclick="showPlan()">Submit</button>
+<p id="planOutput"></p>
+
+<script>
+  function showPlan() {
+    let code = document.getElementById("planCode").value.toUpperCase();
+    let result = "";
+
+    switch (code) {
+      case "A":
+        result = "Basic Plan - $10 - 1 GB/month";
+        break;
+      case "B":
+        result = "Standard Plan - $20 - 5 GB/month";
+        break;
+      case "C":
+        result = "Premium Plan - $30 - 15 GB/month";
+        break;
+      case "D":
+        result = "Unlimited Plan - $50 - Unlimited";
+        break;
+      default:
+        result = "Invalid plan please enter *A,B,C,D*!";
+    }
+
+    document.getElementById("planOutput").textContent = result;
+  }
+</script>
+</body>
+</html>

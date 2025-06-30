@@ -1,0 +1,130 @@
+<!--1. You’re developing an access control system for a building. Employees can only enter 
+if: 
+Their ID card is valid, AND 
+They are either: 
+A full-time employee, OR 
+They have special access clearance, AND 
+They are not suspended 
+Variables → change accordingly with varied test cases 
+let hasValidID = true; 
+let isFullTime = false; 
+let hasSpecialAccess = true; 
+let isSuspended = false; 
+Display the output in webpage content as “access granted or denied”. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access Control System</title>
+  <style>
+    body {
+      background-color: #e18d5d ;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .checkbox-group {
+      margin-top: 15px;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 15px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #p1 {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .checkbox-container {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Employee Access Control</h1>
+
+  <label for="name">Employee Name</label>
+  <input type="text" id="name" placeholder="Enter your name">
+
+  <label for="dob">Year of Birth</label>
+  <input type="number" id="dob" placeholder="e.g. 1990" min="1900" max="2025">
+
+  <label for="empid">Employee ID</label>
+  <input type="text" id="empid" placeholder="Enter your employee ID">
+
+  <div class="checkbox-group">
+    <div class="checkbox-container">
+      <input type="checkbox" id="hasValidID">
+      <label for="hasValidID">I have a valid ID card</label>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="isFullTime">
+      <label for="isFullTime">I am a full-time employee</label>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="hasSpecialAccess">
+      <label for="hasSpecialAccess">I have special access clearance</label>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="isSuspended">
+      <label for="isSuspended">I am currently suspended</label>
+    </div>
+  </div>
+
+  <button onclick="validate()">Check Your Access</button>
+
+  <p id="p1"></p>
+
+  <script>
+    function validate() {
+      let name = document.getElementById("name").value.trim();
+      let dob = document.getElementById("dob").value.trim();
+      let empid = document.getElementById("empid").value.trim();
+      let hasValidID = document.getElementById("hasValidID").checked;
+      let isFullTime = document.getElementById("isFullTime").checked;
+      let hasSpecialAccess = document.getElementById("hasSpecialAccess").checked;
+      let isSuspended = document.getElementById("isSuspended").checked;
+
+      if (!name || !dob || !empid) {
+        document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").innerText = "Please fill in all the fields.";
+        return;
+      }
+
+      let accessGranted = hasValidID && (isFullTime || hasSpecialAccess) && !isSuspended;
+      let result = accessGranted ? "Access Granted" : "Access Denied";
+
+      document.getElementById("p1").style.color = "black";
+      document.getElementById("p1").innerHTML =
+        `Employee Name: ${name}<br>` +
+        `Year of Birth: ${dob}<br>` +
+        `Employee ID: ${empid}<br><br>` +
+        `Result: <strong>${result}</strong>`;
+    }
+  </script>
+
+</body>
+</html>

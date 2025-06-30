@@ -1,0 +1,50 @@
+<!--Create a virtual DJ keyboard. When the user presses certain keys (like A, S, D, F), different 
+music clips or sound effects will play. Display the name of the sound being played. 
+Example: 
+1. Use keydown event listener. 
+2. Map specific keys (A, S, D, F) to specific audio files. 
+3. Display the name of the sound being played on screen. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My DJ Keyboard</title>
+</head>
+<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
+
+  <h2>Press A, S, D, F keys to play sounds</h2>
+
+  <!-- You can add your own audio files here -->
+  <audio id="aSound" src="C:\Users\welcome\Downloads\Blue-Yung-Kai.mp3"></audio>
+  <audio id="sSound" src="C:\Users\welcome\Downloads\01 - Butter.mp3"></audio>
+  
+  <audio id="dSound" src="C:\Users\welcome\Downloads\Die With A Smile-(SambalpuriStar.In).mp3"></audio>
+  <audio id="fSound" src="C:\Users\welcome\Downloads\Espresso - PagalHits.mp3"></audio>
+
+  <!-- This anchor tag shows which sound is playing -->
+  <a id="nowPlaying">🎵 This sound playing: None</a>
+
+  <script>
+    document.addEventListener("keydown", function(e) {
+      let soundName = "";
+      if (e.key === "a" || e.key === "A") {
+        document.getElementById("aSound").play();
+        soundName = "Sound A:Blue plays 🐋";
+      } else if (e.key === "s" || e.key === "S") {
+        document.getElementById("sSound").play();
+        soundName = "Sound S:Butter plays 🧈";
+      } else if (e.key === "d" || e.key === "D") {
+        document.getElementById("dSound").play();
+        soundName = "Sound D:Die with a smile plays 🧸 ";
+      } else if (e.key === "f" || e.key === "F") {
+        document.getElementById("fSound").play();
+        soundName = "Sound F:Espresso plays ☕";
+      }
+
+      if (soundName !== "") {
+        document.getElementById("nowPlaying").textContent = "🎵 This sound playing: " + soundName;
+      }
+    });
+  </script>
+
+</body>
+</html>

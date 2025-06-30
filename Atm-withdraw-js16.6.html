@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>simple ATM</title>
+</head>
+<body>
+
+<h1>WealthMachine ATM</h1>
+
+  <label>Enter your name:</label><br>
+  <input id="name"><br><br>
+
+  <label>Enter withdraw amount:*5000 only balance*</label><br>
+  <input id="amount"><br><br>
+
+  <button onclick="withdrawMoney()">Withdraw</button><br><br>
+
+  <div id="msg"></div>
+
+<script>
+   var balance = 5000;
+  function withdrawMoney(){
+    var name = document.getElementById("name").value.trim();
+    var amount = document.getElementById("amount").value.trim();
+
+    var msg = document.getElementById("msg");
+
+    if (name === '' || amount === '') {
+      msg.textContent = "Please fill in both fields.";
+      return;
+    }
+
+    msg.textContent = "Processing withdrawal...";
+
+    setTimeout(function(){
+      if (amount <= balance) {
+        balance -= amount;
+        msg.textContent = name + " successfully withdrew ₹" + amount + ". Remaining balance: ₹" + balance;
+      } else {
+        msg.textContent = "Insufficient balance.";
+      }
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>

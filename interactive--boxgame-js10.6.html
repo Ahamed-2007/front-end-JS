@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Box</title>
+  <style>
+    #gameSquare {
+      width: 180px;
+      height: 180px;
+      background-color:red;
+      border: 2px solid darkgreen;
+      margin: 30px auto;
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    #gameSquare.expand {
+      width: 280px;
+      height: 280px;
+      font-size: 2rem;
+    }
+
+    body {
+      background-color: seashell;
+      font-family: sans-serif;
+    }
+
+    .instructions {
+      max-width: 500px;
+      margin: 0 auto 20px;
+      padding: 10px;
+      background:yellow;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">🎮 Interactive Box</h2>
+
+  <div class="instructions">
+    <strong>How to use:</strong>
+    <ul>
+      <li>Click the green box to expand/shrink.</li>
+      <li>Hover to get a glowing border.</li>
+      <li>Press <kbd>R</kbd>, <kbd>G</kbd>, or <kbd>B</kbd> to change color.</li>
+    </ul>
+  </div>
+
+  <div id="gameSquare">Click Me</div>
+
+  <script>
+    const box = document.getElementById("gameSquare");
+
+    // Expand/shrink on click
+    box.addEventListener("click", () => {
+      box.classList.toggle("expand");
+      box.textContent = box.classList.contains("expand") ? "Expanded" : "Click Me";
+    });
+
+    // Glow border on hover
+    box.addEventListener("mouseover", () => {
+      box.style.border = "3px dashed gold";
+    });
+
+    box.addEventListener("mouseout", () => {
+      box.style.border = "2px solid darkgreen";
+    });
+
+    // Change color by key press
+    document.addEventListener("keydown", (e) => {
+      const key = e.key.toLowerCase();
+      if (key === 'r') {
+        box.style.backgroundColor = "#ff4d4d";
+        box.textContent = "RED";
+      } else if (key === 'g') {
+        box.style.backgroundColor = "#4dff88";
+        box.textContent = "GREEN";
+      } else if (key === 'b') {
+        box.style.backgroundColor = "#4da6ff";
+        box.textContent = "BLUE";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+</head>
+<body>
+   <h2> ATM WITHDRAW </h2>
+    
+   <label for="balance">Acount Balance ($):</label><br>
+   <input type="number" id="balance" placeholder="Enter your balance"></input>
+    
+   <label for="ammount">Wuthdraw amount ($):</label><br>
+   <input type="number" id="amount" placeholder="Enterthe amount to withdraw"></input>
+   
+   <button onclick="handleATMWithdraw ()"> Withdraw </button>
+   
+   <div id="result"></div>
+   
+   <script>
+      function withdrawFormATM(accountBalance, amountToWithdraw) {
+	   return new Promise((resolve,reject) => {
+	     document.getElementByID("result").innerText =" processing your amount";
+		 
+		 setTimeout(()=> {
+		    if (amountToWithdraw <= accountBalance ) {
+			   resolve('✅ Withdraw successful!')
+			} else {
+			  reject('❌ Insufficient funds')
+			}
+		}
+	},2000);
+	});
+  }

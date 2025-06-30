@@ -1,0 +1,148 @@
+<!--Task 
+You're building a Fitness Training App that alternates between Exercise and Rest periods. 
+Each round includes: 
+• 30 seconds of Exercise (setInterval updates countdown) 
+• 10 seconds of Rest (setTimeout waits before restarting) 
+• The user can Pause or Restart the session at any time. 
+Requirements: 
+1. Exercise Timer runs for 30 seconds using setInterval. 
+2. When 30 seconds are over, a 10-second Rest Timer starts using setTimeout. 
+3. The UI shows which phase is active (Exercise or Rest). 
+4. User can click Pause (which clears both timers). 
+5. User can click Restart to start over.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Training App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+      background-image: url('https://slidechef.net/wp-content/uploads/2024/03/Fitness-Background.jpg'); 
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      background: #000000cc;
+      padding: 20px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ffcc5b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ffa500;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fitness Training App</h1>
+
+  <div class="container">
+    <h2 id="phase">Not Started</h2>
+    <h3 id="timer">--</h3>
+    <br>
+    <button id="start">Start</button>
+    <button id="pause">Pause</button>
+    <button id="restart">Restart</button>
+  </div>
+
+  <script>
+    let intervalId = null;
+    let timeoutId = null;
+
+    let seconds = 30;
+    let isPaused = false;
+
+    const phase = document.getElementById("phase");
+
+    const timer = document.getElementById("timer");
+
+    document.getElementById("start").addEventListener("click", startSession);
+    document.getElementById("pause").addEventListener("click", pauseSession);
+    document.getElementById("restart").addEventListener("click", restartSession);
+
+    function startSession(){
+      if (isPaused) {
+        // Resume from paused
+        isPaused = false;
+        phase.textContent = "Exercise";
+
+        intervalId = setInterval(function(){
+          timer.textContent = seconds + "sec";
+
+          if (seconds <= 0) {
+            clearInterval(intervalId);
+            restSession();
+          }
+          seconds--;
+        },1000);
+      } else {
+        // Start new
+        clearTimeout(timeoutId);
+        clearInterval(intervalId);
+        seconds = 30;
+        phase.textContent = "Exercise";
+
+        intervalId = setInterval(function(){
+          timer.textContent = seconds + "sec";
+
+          if (seconds <= 0) {
+            clearInterval(intervalId);
+            restSession();
+          }
+          seconds--;
+        },1000);
+      }
+    }
+
+    function restSession(){
+      seconds = 10;
+      phase.textContent = "Rest";
+
+      timeoutId = setTimeout(function(){
+        startSession();
+      },10000);
+
+      let restInterval = setInterval(function(){
+        timer.textContent = seconds + "sec";
+
+        if (seconds <= 0) {
+          clearInterval(restInterval);
+        }
+        seconds--;
+      },1000);
+    }
+
+    function pauseSession(){
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+      isPaused = true;
+      phase.textContent = "Paused at " + seconds + "sec";
+    }
+
+    function restartSession(){
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+      isPaused = false;
+      seconds = 30;
+      timer.textContent = "--";
+      phase.textContent = "Not Started";
+
+    }
+  </script>
+
+</body>
+</html>
