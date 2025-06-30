@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GK Quiz</title>
+    <style>
+        body { font-family: Arial;background-color:Thistle; text-align: center; padding-top: 50px; }
+        .option { display: block; margin: 10px auto; padding: 10px; width: 200px; cursor: pointer; border-radius: 8px; }
+        .correct { background-color: lightgreen; }
+        .wrong { background-color: lightcoral; }
+        button { margin-top: 20px; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>GK Quiz</h2>
+    <p id="question">Question will appear here</p>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <br><br>
+    <button onclick="nextQuestion()">Next</button>
+    <button onclick="goHome()">Back to Home</button>
+
+    <script>
+        let questions = [
+            { q: "Capital of India?", o: ["Delhi", "Mumbai", "Chennai", "Kolkata"], a: "Delhi" },
+            { q: "Largest planet?", o: ["Mars", "Earth", "Jupiter", "Venus"], a: "Jupiter" },
+            { q: "Who discovered gravity?", o: ["Newton", "Einstein", "Galileo", "Tesla"], a: "Newton" },
+            { q: "National animal of India?", o: ["Lion", "Tiger", "Elephant", "Peacock"], a: "Tiger" },
+            { q: "Which ocean is largest?", o: ["Pacific", "Atlantic", "Indian", "Arctic"], a: "Pacific" },
+            { q: "How many continents are there?", o: ["5", "6", "7", "8"], a: "7" },
+            { q: "Currency of Japan?", o: ["Yen", "Dollar", "Rupee", "Euro"], a: "Yen" },
+            { q: "Gas released by plants?", o: ["Oxygen", "Carbon", "Hydrogen", "Nitrogen"], a: "Oxygen" },
+            { q: "Sun rises in?", o: ["East", "West", "North", "South"], a: "East" },
+            { q: "Fastest animal?", o: ["Cheetah", "Tiger", "Lion", "Leopard"], a: "Cheetah" }
+        ];
+
+        let index = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (index >= questions.length) {
+                document.body.innerHTML = `<h2>🎇Quiz Completed!</h2><p>Your Score: ${score} / ${questions.length}</p><button onclick="goHome()">Back to Home</button>`;
+                return;
+            }
+
+            let q = questions[index];
+            document.getElementById('question').innerText = q.q;
+            let opts = document.getElementsByClassName('option');
+            for (let i = 0; i < opts.length; i++) {
+                opts[i].innerText = q.o[i];
+                opts[i].style.backgroundColor = '';
+                opts[i].disabled = false;
+            }
+        }
+
+        function checkAnswer(button) {
+            let correct = questions[index].a;
+            if (button.innerText === correct) {
+                button.style.backgroundColor = 'lightgreen';
+                score++;
+            } else {
+                button.style.backgroundColor = 'lightcoral';
+            }
+
+            let opts = document.getElementsByClassName('option');
+            for (let i = 0; i < opts.length; i++) {
+                opts[i].disabled = true;
+            }
+        }
+
+        function nextQuestion() {
+            index++;
+            loadQuestion();
+        }
+
+        function goHome() {
+            window.location.href = 'quiz-html-JS-project.html';
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coding Quiz</title>
+    <style>
+        body { font-family: Arial;background-color:LightGreen; text-align: center; padding-top: 50px; }
+        .option { display: block; margin: 10px auto; padding: 10px; width: 200px; cursor: pointer; border-radius: 8px; }
+        .correct { background-color: lightgreen; }
+        .wrong { background-color: lightcoral; }
+        button { margin-top: 20px; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Coding Quiz</h2>
+    <p id="question">Question will appear here</p>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <button class="option" onclick="checkAnswer(this)"></button>
+    <br><br>
+    <button onclick="nextQuestion()">Next</button>
+    <button onclick="goHome()">Back to Home</button>
+
+    <script>
+        let questions = [
+            { q: "HTML stands for?", o: ["High Markup", "Hyper Text Markup Language", "Home Tool", "Hyperlink Mark"], a: "Hyper Text Markup Language" },
+            { q: "CSS stands for?", o: ["Creative Style", "Cascading Style Sheets", "Computer Style", "Color Style"], a: "Cascading Style Sheets" },
+            { q: "JavaScript is for?", o: ["Structure", "Design", "Interactivity", "Database"], a: "Interactivity" },
+            { q: "Which tag creates a link?", o: ["<p>", "<a>", "<div>", "<img>"], a: "<a>" },
+            { q: "HTML pages are?", o: ["Static", "Dynamic", "Software", "Games"], a: "Static" },
+            { q: "Which tag is for heading?", o: ["<h1>", "<p>", "<a>", "<img>"], a: "<h1>" },
+            { q: "JavaScript file extension?", o: [".html", ".css", ".js", ".doc"], a: ".js" },
+            { q: "HTML is?", o: ["Programming", "Markup", "Database", "Compiler"], a: "Markup" },
+            { q: "Which tag is for images?", o: ["<p>", "<img>", "<h1>", "<a>"], a: "<img>" },
+            { q: "Which symbol closes a tag?", o: ["<>", "</>", "< />", "</ >"], a: "</>" }
+        ];
+
+        let index = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (index >= questions.length) {
+                document.body.innerHTML = `<h2>🎇Quiz Completed!</h2><p>Your Score: ${score} / ${questions.length}</p><button onclick="goHome()">Back to Home</button>`;
+                return;
+            }
+
+            let q = questions[index];
+            document.getElementById('question').innerText = q.q;
+            let opts = document.getElementsByClassName('option');
+            for (let i = 0; i < opts.length; i++) {
+                opts[i].innerText = q.o[i];
+                opts[i].style.backgroundColor = '';
+                opts[i].disabled = false;
+            }
+        }
+
+        function checkAnswer(button) {
+            let correct = questions[index].a;
+            if (button.innerText === correct) {
+                button.style.backgroundColor = 'lightgreen';
+                score++;
+            } else {
+                button.style.backgroundColor = 'lightcoral';
+            }
+
+            let opts = document.getElementsByClassName('option');
+            for (let i = 0; i < opts.length; i++) {
+                opts[i].disabled = true;
+            }
+        }
+
+        function nextQuestion() {
+            index++;
+            loadQuestion();
+        }
+
+        function goHome() {
+            window.location.href = 'quiz-html-JS-project.html';
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>
