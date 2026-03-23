@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Book Universe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bcomic.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+			margin: 0;
+            padding: 0;
+            color: ivory;
+        }
+        header {
+            background-color: maroon;
+            color: ivory;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2rem;
+        }
+        .container {
+            max-width: 520px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:MidnightBlue
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .genre-buttons a {
+            display: block;
+            background-color: beige;
+            text-align: center;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #20232a;
+        }
+        .gallery {
+            display: none;
+        }
+        .gallery:target {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .comic {
+            flex: 1 1 calc(25% - 15px);
+            background-color: #FFD700;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+        }
+        .comic img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid #20232a;
+            cursor: pointer;
+        }
+        .form-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #orderForm:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>Comic Book Universe</header>
+    <div class="container">
+        <div class="genre-buttons">
+            <a href="#action">Action</a>
+            <a href="#scifi">Sci-Fi</a>
+            <a href="#fantasy">Fantasy</a>
+            <a href="#mystery">Mystery</a>
+        </div>
+
+        <div id="action" class="gallery">
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action1.jpg" alt="Action Comic 1"></a><p>Heroic Tales $245</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action2.jpeg" alt="Action Comic 2"></a><p>Battle for Justice $225</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action3.jpg" alt="Action Comic 3"></a><p>Power Rangers Strike $360</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action4.jpeg" alt="Action Comic 4"></a><p>The Brave Warriors $245</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action5.webp" alt="Action Comic 5"></a><p>Tokyo revengers $300</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\action6.jpg" alt="Action Comic 6"></a><p>Hell paradise $290</p></div>
+		</div>
+
+
+        <div id="scifi" class="gallery">
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\sci1.jpg" alt="Sci-Fi Comic 1"></a><p>Galactic Warriors $225</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\sci2.jpeg" alt="Sci-Fi Comic 2"></a><p>Cybernetic Future $315</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\sci3.jpeg" alt="Sci-Fi Comic 3"></a><p>Starship Legends $235</p></div>
+            <div class="comic"><a href="formcomic.html"><img src= "C:\Users\welcome\Downloads\html\mys44.webp" alt="Sci-Fi Comic 4"></a><p>Pirates of the caribbean $330</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\sci5.jpg" alt="scifi Comic 5"></a><p>Detective connan $270</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\sci6.jpg" alt="scifi Comic 6"></a><p>Spider Man $380</p></div>
+        </div>
+        <div id="fantasy" class="gallery">
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\fan1.jpg" alt="Fantasy Comic 1"></a><p>Enchanted Realms $300</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\fan2.jpg" alt="Fantasy Comic 2"></a><p>Dragon's Legacy $310</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\fan3.jpg" alt="Fantasy Comic 3"></a><p>Knights of Valor $280</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\fan4.jpeg" alt="Fantasy Comic 4"></a><p>Forest of Secrets $300</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\golden trio.jpg" alt="Fantasy Comic 5"></a><p>Harry Potter $490</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\fan6.jpg" alt="Fantasy Comic 6"></a><p>Percy Jackson $490</p></div>
+        </div>
+        <div id="mystery" class="gallery">
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys1.jpg" alt="Mystery Comic 1"></a><p>The Detective Files $270</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys2.jpg" alt="Mystery Comic 2"></a><p>Secrets in the Shadows $410</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys3.jpg" alt="Mystery Comic 3"></a><p>Clues of the Past $360</p></div>
+            <div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys4.jpg" alt="Mystery Comic 4"></a><p>The Vanishing Case $345</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys5.jpg" alt="Mystery Comic 5"></a><p>Death Note $380</p></div>
+			<div class="comic"><a href="formcomic.html"><img src="C:\Users\welcome\Downloads\html\mys6.jpg" alt="Mystery Comic 6"></a><p>Solo leveling $350</p></div>
+        </div>
+
+
+
+
+        
+
+        <div id="orderForm" class="form-container">
+            <h2>Enter Your Details</h2>
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="address">Address:</label><br>
+                <textarea id="address" name="address" rows="4" required></textarea
